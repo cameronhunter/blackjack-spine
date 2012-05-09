@@ -9,6 +9,7 @@
     "spine/lib/route",
     "spine/lib/tmpl",
     "spine/lib/manager",
+    "spine/lib/relation",
     "shuffle"
   ],
   "libs": []
