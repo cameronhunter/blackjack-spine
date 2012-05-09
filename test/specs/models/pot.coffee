@@ -31,3 +31,8 @@ describe 'Pot', ->
     pot = new Pot
     pot.debit 1000
     expect( pot.size ).toEqual 500
+    
+  it "shouldn't allow a negative amount in the pot", ->
+    pot = new Pot
+    pot.size = -500
+    expect( pot.save() ).toEqual false
