@@ -9,5 +9,11 @@ class Player extends Spine.Model
 
   constructor: ->
     @pot = new Pot
-  
+
+  bets: (amount) ->
+    @pot.debit amount
+
+  wins: (amount) ->
+    @pot.credit amount
+
 module.exports = Player
