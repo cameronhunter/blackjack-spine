@@ -1,19 +1,14 @@
-require('spine/lib/relation')
-
 Spine = require('spine')
 
 class Hand extends Spine.Model
   @configure 'Hand'
-  @hasOne 'owner', 'models/person'
 
   BLACKJACK = 21
   ROYAL_SCORE = 10
   ACE_LOW_SCORE = 1
   ACE_HIGH_SCORE = 11
   
-  constructor: (owner, cards...) ->
-    throw 'Hands require owners' unless owner
-    @owner = owner
+  constructor: (cards...) ->
     @cards = cards
 
   size: -> @cards.length
