@@ -15,7 +15,7 @@ describe 'Pot', ->
     expect( pot.size ).toEqual 1000
   
   it 'should only accept positive credits', ->
-    expect( -> pot.credit -500 ).toThrow
+    expect( -> pot.credit -500 ).toThrow()
     expect( pot.size ).toEqual 500
     
   it 'should be able to accept debits', ->
@@ -23,11 +23,11 @@ describe 'Pot', ->
     expect( pot.size ).toEqual 0
     
   it 'should only accept positive debits', ->
-    expect( -> pot.debit -500 ).toThrow
+    expect( -> pot.debit -500 ).toThrow()
     expect( pot.size ).toEqual 500
     
   it 'should not accept debits larger than the pot size', ->
-    expect( -> pot.debit 1000 ).toThrow
+    expect( -> pot.debit 1000 ).toThrow()
     expect( pot.size ).toEqual 500
     
   it "shouldn't allow a negative amount in the pot", ->
