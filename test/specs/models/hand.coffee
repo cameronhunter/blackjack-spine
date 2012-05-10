@@ -6,24 +6,18 @@ describe 'Hand', ->
   hand = null
   owner = new Player
   
-  ace_of_spades = {name:'ace', suit:'spades'}
-  ace_of_hearts = {name:'ace', suit:'hearts'}
-  ace_of_diamonds = {name:'ace', suit:'diamonds'}
-  four_of_spades = {name:4, suit:'spades'}
-  queen_of_hearts = {name:'queen', suit:'hearts'}
-  king_of_clubs = {name:'king', suit:'clubs'}
+  ace_of_spades = {description:'ace', suit:'spades'}
+  ace_of_hearts = {description:'ace', suit:'hearts'}
+  ace_of_diamonds = {description:'ace', suit:'diamonds'}
+  four_of_spades = {description:'four', sort:4, suit:'spades'}
+  queen_of_hearts = {description:'queen', suit:'hearts'}
+  king_of_clubs = {description:'king', suit:'clubs'}
   
   beforeEach ->
     hand = new Hand( owner, four_of_spades, queen_of_hearts )
   
   it 'should have an owner', ->
     expect( -> new Hand ).toThrow()
-    
-  it 'should be dealt two cards', ->
-    expect( hand.size() ).toEqual 2
-    expect( -> new Hand( owner ) ).toThrow()
-    expect( -> new Hand( owner, ace_of_spades ) ).toThrow()
-    expect( -> new Hand( owner, ace_of_spades, queen_of_hearts, king_of_clubs ) ).toThrow()
     
   it 'should allow additional cards to be dealt to the hand', ->
     hand.add ace_of_diamonds

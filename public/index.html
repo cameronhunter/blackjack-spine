@@ -27,14 +27,17 @@
     <div class="navbar navbar-fixed-bottom">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="#">Pot: $0</a>
-          <a class="brand" href="#">Bank: $500</a>
+          <span class="pot brand">Pot: $<span class="value">0</span></span>
+          <span class="bank brand">Bank: $<span class="value">0</span></span>
           <div class="nav btn-group">
             <button class="deal btn btn-primary btn-large">Deal</button>
           </div>
           <div class="nav btn-group">
             <button class="hit btn btn-large">Hit</button>
             <button class="stand btn btn-large">Stand</button>
+          </div>
+          <div class="nav btn-group">
+            <button class="bet btn btn-large">Bet $50</button>
           </div>
           <div class="nav btn-group pull-right">
             <a href="/" class="start btn btn-danger btn-large">New Game</a>
@@ -43,7 +46,7 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="blackjack-table container">
 
       <ul class="shoe unstyled">
         <li class="card"></li>

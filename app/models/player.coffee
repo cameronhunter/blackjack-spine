@@ -7,10 +7,17 @@ class Player extends Spine.Model
   @configure 'Player'
   @hasOne 'pot', 'Pot'
 
-  constructor: ->  @pot = new Pot
+  constructor: -> @pot = new Pot
 
-  bets: (amount) -> @pot.debit amount
+  can_afford: (amount) ->
+    @pot.size >= amount
 
-  wins: (amount) -> @pot.credit amount
+  bets: (amount) -> 
+    @pot.debit amount
+    @save()
+
+  wins: (amount) ->
+    @pot.credit amount
+    @save()
 
 module.exports = Player

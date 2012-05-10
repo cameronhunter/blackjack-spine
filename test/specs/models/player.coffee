@@ -24,3 +24,7 @@ describe 'Player', ->
   it 'should not be able to bet more than they own', ->
     expect( -> player.bets 1000 ).toThrow()
     expect( player.pot.size ).toEqual initial_pot_size
+  
+  it 'should be able to check if they can bet that amount', ->
+    expect( player.can_afford initial_pot_size ).toBe true
+    expect( player.can_afford initial_pot_size * 2 ).toBe false

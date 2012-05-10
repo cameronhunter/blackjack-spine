@@ -13,7 +13,6 @@ class Hand extends Spine.Model
   
   constructor: (owner, cards...) ->
     throw 'Hands require owners' unless owner
-    throw 'Hands should be dealt with two cards' unless cards.length == 2
     @owner = owner
     @cards = cards
 
@@ -44,9 +43,9 @@ class Hand extends Spine.Model
   score_of = (card) ->
     return ACE_HIGH_SCORE if is_ace card
     return ROYAL_SCORE if is_royalty card
-    return card.name
+    return card.sort
   
-  is_ace = (card) -> card.name is 'ace'
-  is_royalty = (card) -> card.name in ['jack', 'queen', 'king']
+  is_ace = (card) -> card.description.toLowerCase() is 'ace'
+  is_royalty = (card) -> card.description.toLowerCase() in ['jack', 'queen', 'king']
     
 module.exports = Hand
