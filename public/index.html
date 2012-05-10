@@ -1,21 +1,63 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset=utf-8>
-  <title>App</title>
-  <link rel="stylesheet" href="/application.css" type="text/css" charset="utf-8">
-  <script src="/application.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript" charset="utf-8">
-    var jQuery  = require("jqueryify");
-    var exports = this;
-    jQuery(function(){
-      var App = require("index");
-      exports.app = new App({el: $("body")});      
-    });
-  </script>
-  
-  <!-- Getting started script - should be removed -->
-  <script src="http://maccman-spine.herokuapp.com/start.js" type="text/javascript" charset="utf-8"></script>
-</head>
-<body></body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Blackjack</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blackjack game implemented using SpineJS and Bootstrap">
+    <meta name="author" content="Cameron Hunter (@cameronhunter)">
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/bootstrap-min.css" rel="stylesheet">
+    <link href="/application.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="/application.js"></script>
+    <script>
+      var jQuery  = require("jqueryify");
+      var exports = this;
+      jQuery(function(){
+        var App = require("index");
+        exports.app = new App({el: $("#blackjack-table")});
+      });
+    </script>
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-bottom">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="#">Bank: $500</a>
+          <ul class="nav pull-right">
+            <li><a href="#">New Game</a></li>
+            <li><a href="#">Rules</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="blackjack-table" class="container-fluid">
+
+      <div class="shoe">
+        <div class="card"></div>
+        <div class="card"></div>
+      </div>
+      
+      <div class="dealer hand row-fluid">
+        <div class="card" data-name="4" data-suit="hearts"></div>
+        <div class="card" data-name="Q" data-suit="clubs"></div>
+      </div>
+      
+      
+      <div class="player hand row-fluid">
+        <div class="card" data-name="4" data-suit="hearts"></div>
+        <div class="card" data-name="5" data-suit="diamonds"></div>
+        <div class="card" data-name="10" data-suit="spades"></div>
+        <div class="card" data-name="Q" data-suit="clubs"></div>
+      </div>
+      
+    </div>
+    
+  </body>
 </html>
