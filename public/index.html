@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Blackjack game implemented using SpineJS and Bootstrap">
     <meta name="author" content="Cameron Hunter (@cameronhunter)">
-    <link href="/css/bootstrap.css" rel="stylesheet">
-    <link href="/css/bootstrap-min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/application.css" rel="stylesheet">
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -18,7 +17,7 @@
       var exports = this;
       jQuery(function(){
         var App = require("index");
-        exports.app = new App({el: $("#blackjack-table")});
+        exports.app = new App({el: $("body")});
       });
     </script>
   </head>
@@ -27,35 +26,42 @@
 
     <div class="navbar navbar-fixed-bottom">
       <div class="navbar-inner">
-        <div class="container-fluid">
+        <div class="container">
+          <a class="brand" href="#">Pot: $0</a>
           <a class="brand" href="#">Bank: $500</a>
-          <ul class="nav pull-right">
-            <li><a href="#">New Game</a></li>
-            <li><a href="#">Rules</a></li>
-          </ul>
+          <div class="nav btn-group">
+            <button class="deal btn btn-primary btn-large">Deal</button>
+          </div>
+          <div class="nav btn-group">
+            <button class="hit btn btn-large">Hit</button>
+            <button class="stand btn btn-large">Stand</button>
+          </div>
+          <div class="nav btn-group pull-right">
+            <a href="/" class="start btn btn-danger btn-large">New Game</a>
+          </div>
         </div>
       </div>
     </div>
 
-    <div id="blackjack-table" class="container-fluid">
+    <div class="container">
 
-      <div class="shoe">
-        <div class="card"></div>
-        <div class="card"></div>
-      </div>
+      <ul class="shoe unstyled">
+        <li class="card"></li>
+        <li class="card"></li>
+      </ul>
       
-      <div class="dealer hand row-fluid">
-        <div class="card" data-name="4" data-suit="hearts"></div>
-        <div class="card" data-name="Q" data-suit="clubs"></div>
-      </div>
+      <ul class="dealer hand unstyled">
+        <li class="card" data-name="4" data-suit="hearts"></li>
+        <li class="card" data-name="Q" data-suit="clubs"></li>
+      </ul>
       
+      <ul class="player hand unstyled">
+        <li class="card" data-name="4" data-suit="hearts"></li>
+        <li class="card" data-name="5" data-suit="diamonds"></li>
+        <li class="card" data-name="10" data-suit="spades"></li>
+        <li class="card" data-name="Q" data-suit="clubs"></li>
+      </ul>
       
-      <div class="player hand row-fluid">
-        <div class="card" data-name="4" data-suit="hearts"></div>
-        <div class="card" data-name="5" data-suit="diamonds"></div>
-        <div class="card" data-name="10" data-suit="spades"></div>
-        <div class="card" data-name="Q" data-suit="clubs"></div>
-      </div>
       
     </div>
     
