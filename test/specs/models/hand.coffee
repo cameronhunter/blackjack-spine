@@ -4,12 +4,13 @@ describe 'Hand', ->
   Hand = require('models/hand')
   hand = null
   
-  ace_of_spades = {description:'ace', suit:'spades'}
-  ace_of_hearts = {description:'ace', suit:'hearts'}
-  ace_of_diamonds = {description:'ace', suit:'diamonds'}
-  four_of_spades = {description:'four', sort:4, suit:'spades'}
-  queen_of_hearts = {description:'queen', suit:'hearts'}
-  king_of_clubs = {description:'king', suit:'clubs'}
+  # Precanned cards from node-shuffle -- These are adapted to be more useful internally
+  ace_of_spades = {description:'ace', suit:'Spade'}
+  ace_of_hearts = {description:'ace', suit:'Heart'}
+  ace_of_diamonds = {description:'ace', suit:'Diamond'}
+  four_of_spades = {description:'four', sort:4, suit:'Spade'}
+  queen_of_hearts = {description:'queen', suit:'Heart'}
+  king_of_clubs = {description:'king', suit:'Club'}
   
   beforeEach ->
     hand = new Hand( four_of_spades, queen_of_hearts )
