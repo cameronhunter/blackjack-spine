@@ -17,7 +17,9 @@ class Hand extends Spine.Model
     @cards = cards
 
   size: -> @cards.length
+  
   is_bust: -> @score() > BLACKJACK
+  
   is_blackjack: -> @score() == BLACKJACK
 
   add: (card) -> 
