@@ -4,11 +4,12 @@ Spine = require('spine')
 
 class Hand extends Spine.Model
   @configure 'Hand'
-  @hasOne 'owner', 'models/player'
+  @hasOne 'owner', 'models/person'
 
   BLACKJACK = 21
-  ACE_SCORE = 11
   ROYAL_SCORE = 10
+  ACE_LOW_SCORE = 1
+  ACE_HIGH_SCORE = 11
   
   constructor: (owner, cards...) ->
     throw 'Hands require owners' unless owner
@@ -32,19 +33,20 @@ class Hand extends Spine.Model
     for card in @cards
       score = score_of card
       total += score
-      aces += 1 if score == ACE_SCORE
+      aces += 1 if score == ACE_HIGH_SCORE
     while total > BLACKJACK and aces > 0
-      total -= 10
+      total -= (ACE_HIGH_SCORE - ACE_LOW_SCORE)
       aces -= 1
     return total
 
   # Private
   
   score_of = (card) ->
-    return ACE_SCORE   if card.name is 'ace'
+    return ACE_HIGH_SCORE if is_ace card
     return ROYAL_SCORE if is_royalty card
     return card.name
-    
+  
+  is_ace = (card) -> card.name is 'ace'
   is_royalty = (card) -> card.name in ['jack', 'queen', 'king']
     
 module.exports = Hand

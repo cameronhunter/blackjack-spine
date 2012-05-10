@@ -12,7 +12,7 @@ describe 'Player', ->
   it 'should own a pot', ->
     expect( player.pot ).toBeDefined()
     expect( player.pot.size ).toEqual initial_pot_size
-    
+  
   it "should add money to the player's pot when they win", ->
     player.wins 500
     expect( player.pot.size ).toEqual initial_pot_size + 500
@@ -24,4 +24,3 @@ describe 'Player', ->
   it 'should not be able to bet more than they own', ->
     expect( -> player.bets 1000 ).toThrow()
     expect( player.pot.size ).toEqual initial_pot_size
-    

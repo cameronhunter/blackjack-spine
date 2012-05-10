@@ -1,5 +1,5 @@
 require = window.require
-$ = require('jqueryify')
+
 describe 'Hand', ->
   Player = require('models/player')
   Hand = require('models/hand')
@@ -38,7 +38,7 @@ describe 'Hand', ->
     awesome_hand.add ace_of_hearts
     expect( awesome_hand.score() ).toEqual 13
   
-  it 'if the hand value exceeds 21 points, it busts', ->
+  it 'should be bust if the value exceeds 21 points', ->
     hand = new Hand( owner, queen_of_hearts, king_of_clubs )
     expect( hand.is_bust() ).toBe false
     hand.add four_of_spades
