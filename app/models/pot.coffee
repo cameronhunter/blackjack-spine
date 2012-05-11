@@ -3,17 +3,12 @@ Spine = require('spine')
 class Pot extends Spine.Model
   @configure 'Pot', 'size'
   
-  DEFAULT_SIZE = 500
-  
   constructor: (amount) -> 
     throw "We're not in the credit business here" if amount < 0
-    @size =
-      if amount >= 0
-        amount
-      else
-        DEFAULT_SIZE
+    @size = amount || 0
 
-  validate: -> "We're card sharks, not loan sharks!" unless @size >= 0
+  validate: ->
+    "We're card sharks, not loan sharks!" unless @size >= 0
   
   credit: (amount) ->
     throw "Can only credit positive amounts. Got: #{amount}" if amount < 0
