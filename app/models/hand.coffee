@@ -25,7 +25,6 @@ class Hand extends Spine.Model
   add: (card) -> 
     throw "Hand is already bust. #{card.name for card in @cards}" if @is_bust()
     throw "Hand is already blackjack. #{card.name for card in @cards}" if @is_blackjack()
-    console.log @opponent
     card.hidden = @cards.length > 0 and @opponent
     @cards.push( adapt card )
     @save()
