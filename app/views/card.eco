@@ -1,3 +1,3 @@
 <% for card in @cards: %>
-  <li class="card" data-name="<%= card.name %>" data-suit="<%= card.suit %>"></li>
+  <li class="card <%= 'face-down' if card.hidden %>" data-name="<%= card.name %>" data-suit="<%= card.suit %>"></li>
 <% end %>
