@@ -3,19 +3,23 @@ Cards = require('models/hand')
 
 class Hand extends Spine.Controller
 
+  elements:
+    '.badge': 'score'
+    '.hand': 'cards'
+
   constructor: ->
     super
-    @log 'New hand on element', @el
+    Cards.bind('create change', @render)
     @hand = new Cards
-    @hand.bind('change', @render)
   
   deal: (card) ->
     @hand.add card
 
   template: (cards) ->
-    require('views/card')(cards:cards)
+    require('views/card')(cards:cards, dealer:true)
 
   render: =>
-    @html( @template( @hand.cards ) )
+    @score.html( @hand.score() )
+    @cards.html( @template( @hand.cards ) )
     
 module.exports = Hand

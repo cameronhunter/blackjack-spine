@@ -30,17 +30,17 @@
           <span class="pot brand">Pot: $<span class="value">0</span></span>
           <span class="bank brand">Bank: $<span class="value">0</span></span>
           <div class="nav btn-group">
-            <button class="deal btn btn-primary btn-large">Deal</button>
+            <button class="bet btn btn-large btn-success" data-amount="10">$</button>
+            <button class="bet btn btn-large btn-warning" data-amount="25">$</button>
+            <button class="bet btn btn-large btn-danger" data-amount="50">$</button>
           </div>
           <div class="nav btn-group">
             <button class="hit btn btn-large">Hit</button>
             <button class="stand btn btn-large">Stand</button>
-          </div>
-          <div class="nav btn-group">
-            <button class="bet btn btn-large">Bet $50</button>
+            <button class="surrender btn btn-large">Surrender</button>
           </div>
           <div class="nav btn-group pull-right">
-            <a href="/" class="start btn btn-danger btn-large">New Game</a>
+            <a href="/" class="start btn btn-info btn-large">Start Over</a>
           </div>
         </div>
       </div>
@@ -53,8 +53,15 @@
         <li class="card"></li>
       </ul>
       
-      <ul class="dealer hand unstyled"></ul>
-      <ul class="player hand unstyled"></ul>
+      <section class="dealer">
+        <span class="badge badge-inverse">10</span>
+        <ul class="hand unstyled"></ul>
+      </section>
+      
+      <section class="player">
+        <span class="badge badge-inverse">10</span>
+        <ul class="hand unstyled"></ul>
+      </section>
       
     </div>
     
