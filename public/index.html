@@ -28,20 +28,8 @@
     <div class="navbar navbar-fixed-bottom">
       <div class="navbar-inner">
         <div class="container">
-          <span class="bank brand">Bank: $<span class="value">0</span></span>
-          <div class="nav btn-group">
-            <button class="deal btn btn-large btn-primary">Deal</button>
-          </div>
-          <div class="controls nav btn-group">
-            <button class="hit btn btn-large">Hit</button>
-            <button class="stand btn btn-large">Stand</button>
-          </div>
-          <div class="controls nav btn-group">
-            <button class="bet btn btn-large btn-success" data-amount="10">$</button>
-            <button class="bet btn btn-large btn-warning" data-amount="25">$</button>
-            <button class="bet btn btn-large btn-danger" data-amount="50">$</button>
-          </div>
-          <a href="/" class="start btn btn-large btn-info pull-right">Start Over</a>
+          <section class="bank"></section>
+          <section class="actions"></section>
         </div>
       </div>
     </div>
@@ -52,40 +40,9 @@
         <h1>Blackjack <small>Pays 3 to 2</small></h1>
       </div>
       
-      <section class="dealer">
-        <div class="row">
-          <div class="span12">
-            <ul class="hand unstyled"></ul>
-          </div>
-        </div>
-        <div class="row">
-          <div class="span12">
-            <span class="label label-info">Dealer: <span class="score">0</span></span>
-          </div>
-        </div>
-      </section>
-      
-      <section class="pot row">
-        <div class="span12">
-          <div class="btn-group">
-            <span class="pot btn btn-inverse disabled">Pot: $<span class="value">0</span></span>
-            <span class="win btn btn-inverse disabled">Win: $<span class="value">0</span></span>
-          </div>
-        </div>
-      </section>
-      
-      <section class="player">
-        <div class="row">
-          <div class="span12">
-            <span class="label label-info">You: <span class="score">0</span></span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="span12">
-            <ul class="hand unstyled"></ul>
-          </div>
-        </div>
-      </section>
+      <section class="dealer hand"></section>
+      <section class="pot"></section>
+      <section class="player hand"></section>
       
     </div>
     

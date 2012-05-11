@@ -2,32 +2,30 @@ require('lib/setup')
 
 Spine = require('spine')
 Player = require('models/player')
-Hand = require('controllers/blackjack.hand')
-Round = require('controllers/blackjack.round')
+Bank = require('controllers/bank')
+Round = require('controllers/round')
 
 class App extends Spine.Controller
 
   ODDS = 3/2
-  DEFAULT_BLINDS = 0
+  MAX_BET = 100
+  DEFAULT_BLINDS = 5
   DEFAULT_INITIAL_POT_SIZE = 500
 
   elements:
-    '.bank .value': 'bank_value'
+    'section.bank': 'bank_section'
 
   events:
-    'click .deal': 'start'
+    'click .surrender': 'start'
 
   constructor: ->
     super
-    Player.bind('change', @update_players_pot)
     @player = new Player DEFAULT_INITIAL_POT_SIZE
+    @bank = new Bank(el: @bank_section, player:@player)
     @start()
   
   start: ->
-    @round = new Round(odds: ODDS, blinds:DEFAULT_BLINDS, player:@player, el:@el)
+    @round = new Round(odds: ODDS, max_bet: MAX_BET, blinds:DEFAULT_BLINDS, player:@player, el:@el)
   
-  update_players_pot: =>
-    @bank_value.html( @player.pot.size.toFixed(2) )
-
 module.exports = App
     

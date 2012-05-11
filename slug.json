@@ -10,6 +10,7 @@
     "spine/lib/tmpl",
     "spine/lib/manager",
     "spine/lib/relation",
+    "spine/lib/list",
     "shuffle"
   ],
   "libs": []

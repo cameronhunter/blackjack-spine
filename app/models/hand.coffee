@@ -11,8 +11,9 @@ class Hand extends Spine.Model
   ROYALTY = ['J', 'Q', 'K']
 
   constructor: (attrs) ->
-    @cards = attrs?.cards || []
+    @cards = attrs?.cards ? []
     @opponent = attrs?.opponent
+    @reload()
   
   size: -> @cards.length
   
@@ -27,7 +28,6 @@ class Hand extends Spine.Model
     throw "Hand is already blackjack. #{card.name for card in @cards}" if @is_blackjack()
     card.hidden = @cards.length > 0 and @opponent
     @cards.push( adapt card )
-    @save()
 
   score: ->
     total = 0; aces = 0
