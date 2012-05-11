@@ -9,7 +9,7 @@ class Round extends Spine.Controller
 
   elements:
     '.pot .value': 'pot_value'
-    '.bet': 'bet_button'
+    '.win .value': 'win_value'
     '.player': 'players_hand'
     '.dealer': 'dealers_hand'
 
@@ -21,10 +21,11 @@ class Round extends Spine.Controller
   constructor: ->
     super
     Pot.bind("create change", @update_pot)
+    Pot.bind("create change", @update_winnings)
     @pot = new Pot
     @deck = Deck.shuffle()
     @player_hand = new Hand(el:@players_hand)
-    @dealer_hand = new Hand(el:@dealers_hand)
+    @dealer_hand = new Hand(el:@dealers_hand, opponent:yes)
     @pay @blinds
     @deal()
 
@@ -44,8 +45,7 @@ class Round extends Spine.Controller
     @pay $(e.target).data('amount')
 
   stand: ->
-    # disable the hit/bet/surrender button
-    @hit @dealer_hand
+    @hit @dealer_hand # disable the hit/bet/surrender button
   
   pay: (amount) ->
     @player.bets amount
@@ -53,5 +53,8 @@ class Round extends Spine.Controller
 
   update_pot: =>
     @pot_value.html( @pot.size )
+  
+  update_winnings: =>
+    @win_value.html( (@pot.size * @odds).toFixed(2) )
     
 module.exports = Round

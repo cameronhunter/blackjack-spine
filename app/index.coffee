@@ -7,8 +7,7 @@ Round = require('controllers/blackjack.round')
 
 class App extends Spine.Controller
 
-  # TODO Implement odds for winnings
-
+  ODDS = 3/2
   DEFAULT_BLINDS = 5
   DEFAULT_INITIAL_POT_SIZE = 500
 
@@ -25,7 +24,7 @@ class App extends Spine.Controller
     @start()
   
   start: ->
-    @round = new Round(el:@el, player:@player, blinds:DEFAULT_BLINDS)
+    @round = new Round(odds: ODDS, blinds:DEFAULT_BLINDS, player:@player, el:@el)
   
   update_players_pot: =>
     @bank_value.html( @player.pot.size )
