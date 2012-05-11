@@ -16,14 +16,14 @@ class App extends Spine.Controller
 
   constructor: ->
     super
-    Player.bind('create change', @render)
+    Player.bind('create change', @update_players_pot)
     @player = new Player DEFAULT_INITIAL_POT_SIZE
     @start()
   
   start: ->
-    @round = new Round(el:$('body'), player:@player)
+    @round = new Round(el:@el, player:@player)
   
-  render: =>
+  update_players_pot: =>
     @bank_value.html( @player.pot.size )
 
 module.exports = App
