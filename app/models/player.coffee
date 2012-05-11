@@ -7,7 +7,8 @@ class Player extends Spine.Model
   @configure 'Player'
   @hasOne 'pot', 'Pot'
 
-  constructor: -> @pot = new Pot
+  constructor: (pot_size) ->
+    @pot = new Pot pot_size
 
   can_afford: (amount) ->
     @pot.size >= amount

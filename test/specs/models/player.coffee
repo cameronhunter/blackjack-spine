@@ -2,12 +2,11 @@ require = window.require
 
 describe 'Player', ->
   Player = require('models/player')
+  initial_pot_size = 1000
   player = null
-  initial_pot_size = null
   
   beforeEach ->
-    player = new Player
-    initial_pot_size = player.pot.size
+    player = new Player initial_pot_size
 
   it 'should own a pot', ->
     expect( player.pot ).toBeDefined()
@@ -22,7 +21,7 @@ describe 'Player', ->
     expect( player.pot.size ).toEqual initial_pot_size - 300
   
   it 'should not be able to bet more than they own', ->
-    expect( -> player.bets 1000 ).toThrow()
+    expect( -> player.bets initial_pot_size * 2 ).toThrow()
     expect( player.pot.size ).toEqual initial_pot_size
   
   it 'should be able to check if they can bet that amount', ->
