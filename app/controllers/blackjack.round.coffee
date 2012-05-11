@@ -20,8 +20,8 @@ class Round extends Spine.Controller
 
   constructor: ->
     super
-    Pot.bind("create change", @update_pot)
-    Pot.bind("create change", @update_winnings)
+    Pot.bind('change', @update_pot)
+    Pot.bind('change', @update_winnings)
     @pot = new Pot
     @deck = Deck.shuffle()
     @player_hand = new Hand(el:@players_hand)

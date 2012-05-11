@@ -19,7 +19,7 @@ class App extends Spine.Controller
 
   constructor: ->
     super
-    Player.bind('create change', @update_players_pot)
+    Player.bind('change', @update_players_pot)
     @player = new Player DEFAULT_INITIAL_POT_SIZE
     @start()
   

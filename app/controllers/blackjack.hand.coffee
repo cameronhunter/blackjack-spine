@@ -9,7 +9,7 @@ class Hand extends Spine.Controller
 
   constructor: ->
     super
-    Cards.bind('create change', @render)
+    Cards.bind('change', @render)
     @hand = new Cards(opponent:@opponent)
   
   deal: (card) ->
