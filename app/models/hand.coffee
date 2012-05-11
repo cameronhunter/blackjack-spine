@@ -9,25 +9,30 @@ class Hand extends Spine.Model
   ACE_HIGH_SCORE = 11
   ACE = 'A'
   ROYALTY = ['J', 'Q', 'K']
-  
-  constructor: (cards...) ->
-    @cards = (adapt(card) for card in cards)
 
+  constructor: (attrs) ->
+    @cards = attrs?.cards || []
+    @opponent = attrs?.opponent
+  
   size: -> @cards.length
   
-  is_bust: -> @score() > BLACKJACK
+  is_bust: ->
+    @score() > BLACKJACK
   
-  is_blackjack: -> @score() == BLACKJACK
+  is_blackjack: ->
+    @score() == BLACKJACK
 
   add: (card) -> 
     throw "Hand is already bust. #{card.name for card in @cards}" if @is_bust()
     throw "Hand is already blackjack. #{card.name for card in @cards}" if @is_blackjack()
+    console.log @opponent
+    card.hidden = @cards.length > 0 and @opponent
     @cards.push( adapt card )
     @save()
 
   score: ->
     total = 0; aces = 0
-    for card in @cards
+    for card in @cards when !card.hidden
       score = score_of card
       total += score
       aces += 1 if score == ACE_HIGH_SCORE
@@ -37,21 +42,27 @@ class Hand extends Spine.Model
     return total
 
   # Private
+
+  score_of = (card) ->
+    return ACE_HIGH_SCORE if card.name is ACE
+    return ROYAL_SCORE if card.name in ROYALTY
+    return card.name
+  
+  # node-shuffle cards aren't quite what we want -- adapt them to something more appropriate
   
   adapt = (card) ->
-    {suit: suit_name(card), name: card_name(card)}
+    {suit: suit_name(card), name: card_name(card), hidden: card.hidden}
   
   suit_name = (card) ->
-    "#{card.suit?.toLowerCase()}s"
+    switch "#{card.suit?.toLowerCase()}s"
+      when 'hearts' then '♥'
+      when 'diamonds' then '♦'
+      when 'spades' then '♠'
+      when 'clubs' then '♣'
   
   card_name = (card) ->
     name = card.description?.toUpperCase()[0]
     return name if name is ACE or name in ROYALTY
     return card.sort
   
-  score_of = (card) ->
-    return ACE_HIGH_SCORE if card.name is ACE
-    return ROYAL_SCORE if card.name in ROYALTY
-    return card.name
-    
 module.exports = Hand
