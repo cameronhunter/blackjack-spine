@@ -20,8 +20,8 @@ class Hand extends Spine.Model
   is_blackjack: -> @score() == BLACKJACK
 
   add: (card) -> 
-    throw "Hand is already bust" if @is_bust()
-    throw "Hand is already blackjack" if @is_blackjack()
+    throw "Hand is already bust. #{card.name for card in @cards}" if @is_bust()
+    throw "Hand is already blackjack. #{card.name for card in @cards}" if @is_blackjack()
     @cards.push( adapt card )
     @save()
 

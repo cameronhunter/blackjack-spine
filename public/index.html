@@ -26,7 +26,7 @@
 
     <div class="navbar navbar-fixed-bottom">
       <div class="navbar-inner">
-        <div class="container">
+        <div class="container-fluid">
           <span class="pot brand">Pot: $<span class="value">0</span></span>
           <span class="bank brand">Bank: $<span class="value">0</span></span>
           <div class="nav btn-group">
@@ -46,21 +46,31 @@
       </div>
     </div>
 
-    <div class="blackjack-table container">
+    <div class="blackjack-table container-fluid">
 
       <ul class="shoe unstyled">
         <li class="card"></li>
         <li class="card"></li>
       </ul>
       
-      <section class="dealer">
-        <span class="badge badge-inverse">10</span>
-        <ul class="hand unstyled"></ul>
+      <section class="dealer row-fluid">
+        <div class="span1 score">
+          <span class="label label-info">Dealer</span>
+          <span class="badge badge-inverse"></span>
+        </div>
+        <div class="span11">
+          <ul class="hand unstyled"></ul>
+        </div>
       </section>
       
-      <section class="player">
-        <span class="badge badge-inverse">10</span>
-        <ul class="hand unstyled"></ul>
+      <section class="player row-fluid">
+        <div class="span1 score">
+          <span class="label label-info">You</span>
+          <span class="badge badge-inverse"></span>
+        </div>
+        <div class="span11">
+          <ul class="hand unstyled"></ul>
+        </div>
       </section>
       
     </div>

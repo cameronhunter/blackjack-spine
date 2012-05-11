@@ -1,5 +1,6 @@
 Spine = require('spine')
 Pot = require('models/pot')
+Cards = require('models/hand')
 Deck = require('shuffle/lib')
 Hand = require('controllers/blackjack.hand')
 $ = Spine.$
@@ -13,8 +14,9 @@ class Round extends Spine.Controller
     '.dealer': 'dealers_hand'
 
   events:
-    'click .bet': 'bet_action'
-    'click .hit': 'hit'
+    'click .bet': 'bet'
+    'click .hit': 'hit_me'
+    'click .stand': 'stand'
 
   constructor: ->
     super
@@ -23,6 +25,7 @@ class Round extends Spine.Controller
     @deck = Deck.shuffle()
     @player_hand = new Hand(el:@players_hand)
     @dealer_hand = new Hand(el:@dealers_hand)
+    @pay @blinds
     @deal()
 
   deal: ->
@@ -30,15 +33,21 @@ class Round extends Spine.Controller
     @dealer_hand.deal @deck.draw()
     @player_hand.deal @deck.draw()
     @dealer_hand.deal @deck.draw()
-    @bet 5 # Blinds
   
-  hit: ->
-    @player_hand.deal @deck.draw()
+  hit_me: ->
+    @hit @player_hand
+    
+  hit: (hand) ->
+    hand.deal @deck.draw()
   
-  bet_action: (e) ->
-    @bet $(e.target).data('amount')
+  bet: (e) ->
+    @pay $(e.target).data('amount')
+
+  stand: ->
+    # disable the hit/bet/surrender button
+    @hit @dealer_hand
   
-  bet: (amount) ->
+  pay: (amount) ->
     @player.bets amount
     @pot.credit amount
 
