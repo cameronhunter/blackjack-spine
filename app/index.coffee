@@ -6,23 +6,22 @@ Round = require('controllers/blackjack.round')
 
 class App extends Spine.Controller
 
+  DEFAULT_INITIAL_POT_SIZE = 500
+
   elements:
     '.bank .value': 'bank_value'
 
   events:
-    'click .deal': 'deal'
+    'click .surrender': 'start'
 
   constructor: ->
     super
-    @log "Create new blackjack on element", @el
-    @dealer = new Player
-    @player = new Player
-    
-    @player.bind("change", @render)
-    @render()
+    Player.bind('create change', @render)
+    @player = new Player DEFAULT_INITIAL_POT_SIZE
+    @start()
   
-  deal: ->
-    @round = new Round(el:$('body'), dealer:@dealer, player:@player)
+  start: ->
+    @round = new Round(el:$('body'), player:@player)
   
   render: =>
     @bank_value.html( @player.pot.size )
