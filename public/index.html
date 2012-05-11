@@ -7,6 +7,7 @@
     <meta name="description" content="Blackjack game implemented using SpineJS and Bootstrap">
     <meta name="author" content="Cameron Hunter (@cameronhunter)">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap-responsive.min.css" rel="stylesheet">
     <link href="/application.css" rel="stylesheet">
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -26,42 +27,45 @@
 
     <div class="navbar navbar-fixed-bottom">
       <div class="navbar-inner">
-        <div class="container-fluid">
+        <div class="container">
           <span class="bank brand">Bank: $<span class="value">0</span></span>
-          <div class="nav btn-group">
-            <button class="bet btn btn-large btn-success" data-amount="10">$</button>
-            <button class="bet btn btn-large btn-warning" data-amount="25">$</button>
-            <button class="bet btn btn-large btn-danger" data-amount="50">$</button>
-          </div>
-          <div class="nav btn-group">
+          <div class="controls nav btn-group">
             <button class="hit btn btn-large">Hit</button>
             <button class="stand btn btn-large">Stand</button>
             <button class="surrender btn btn-large">Surrender</button>
           </div>
+          <div class="controls nav btn-group">
+            <button class="bet btn btn-large btn-success" data-amount="10">$</button>
+            <button class="bet btn btn-large btn-warning" data-amount="25">$</button>
+            <button class="bet btn btn-large btn-danger" data-amount="50">$</button>
+          </div>
+          <button class="deal btn btn-large btn-primary">Deal</button>
+          <a href="/" class="start btn btn-large btn-danger">Start Over</a>
         </div>
       </div>
     </div>
 
-    <div class="blackjack-table container-fluid">
+    <div class="container">
       
-      <ul class="shoe visible-desktop unstyled">
-        <li class="card"></li>
-        <li class="card"></li>
-      </ul>
+      <div class="page-header">
+        <h1>Blackjack <small>Pays 3 to 2</small></h1>
+      </div>
       
-      <section class="dealer row-fluid">
-        <div class="span1 score">
-          <span class="label label-info">Dealer</span>
-          <span class="badge badge-inverse"></span>
+      <section class="dealer">
+        <div class="row">
+          <div class="span12">
+            <ul class="hand unstyled"></ul>
+          </div>
         </div>
-        <div class="span11">
-          <ul class="hand unstyled"></ul>
+        <div class="row">
+          <div class="span12">
+            <span class="label label-info">Dealer: <span class="score">0</span></span>
+          </div>
         </div>
       </section>
       
-      <section class="row-fluid">
-        <div class="span1"></div>
-        <div class="span2">
+      <section class="pot row">
+        <div class="span12">
           <div class="btn-group">
             <span class="pot btn btn-inverse disabled">Pot: $<span class="value">0</span></span>
             <span class="win btn btn-inverse disabled">Win: $<span class="value">0</span></span>
@@ -69,13 +73,16 @@
         </div>
       </section>
       
-      <section class="player row-fluid">
-        <div class="span1 score">
-          <span class="label label-info">You</span>
-          <span class="badge badge-inverse"></span>
+      <section class="player">
+        <div class="row">
+          <div class="span12">
+            <span class="label label-info">You: <span class="score">0</span></span>
+          </div>
         </div>
-        <div class="span11">
-          <ul class="hand unstyled"></ul>
+        <div class="row">
+          <div class="span12">
+            <ul class="hand unstyled"></ul>
+          </div>
         </div>
       </section>
       

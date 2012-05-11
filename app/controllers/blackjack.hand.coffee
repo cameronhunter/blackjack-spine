@@ -2,35 +2,34 @@ Spine = require('spine')
 Cards = require('models/hand')
 
 class Hand extends Spine.Controller
-
+  
   elements:
     '.hand': 'cards'
-    '.score .badge': 'score'
+    '.score': 'score'
 
   constructor: ->
     super
-    Cards.bind('change', @render)
     @hand = new Cards(opponent:@opponent)
+    @update()
   
   deal: (card) ->
     try
       @hand.add card
+      @update()
     catch e
-      # TODO: Either bust or blackjack - should replace the game controls with a deal button
+      # Do something about this
 
   template: (cards) ->
     require('views/card')(cards:cards)
 
-  # Argh - this is horrible
-  render: =>
-    state = 'badge-important badge-inverse badge-warning'
-    if @hand.is_blackjack()
-      @score.html( 'Blackjack!' ).removeClass( state ).addClass( 'badge-warning' )
-    else if @hand.is_bust()
-      @score.html( 'Bust!' ).removeClass( state ).addClass( 'badge-important' )
-    else
-      @score.html( @hand.score() ).removeClass( state ).addClass('badge-inverse')
-        
+  update: =>
     @cards.html( @template( @hand.cards ) )
     
+    if @hand.is_blackjack()
+      @score.html( 'Blackjack!' ).trigger('blackjack')
+    else if @hand.is_bust()
+      @score.html( 'Bust!' ).trigger('bust')
+    else
+      @score.html( @hand.score() )
+      
 module.exports = Hand
