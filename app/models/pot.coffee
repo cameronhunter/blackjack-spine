@@ -5,11 +5,11 @@ class Pot extends Spine.Model
   
   constructor: (amount) -> 
     throw "We're not in the credit business here" if amount < 0
-    @size = amount || 0
+    @size = amount ? 0
 
   validate: ->
     "We're card sharks, not loan sharks!" unless @size >= 0
-  
+    
   credit: (amount) ->
     throw "Can only credit positive amounts. Got: #{amount}" if amount < 0
     @size += amount
@@ -20,5 +20,5 @@ class Pot extends Spine.Model
     throw "You can't debit #{amount}, there's only #{@size} in the pot" if amount > @size
     @size -= amount
     @save()
-  
+
 module.exports = Pot
