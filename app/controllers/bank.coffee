@@ -1,16 +1,16 @@
 Spine = require('spine')
+Player = require('models/player')
 
 class Bank extends Spine.Controller
 
   elements:
-    '.bank .value': 'bank_value'
+    '.value': 'bank_value'
 
   constructor: ->
     super
-    @html require('views/bank')()
-    @player.bind 'change', @render
+    Player.bind 'change', @render
   
-  render: (e) =>
-    @bank_value.html @player.pot.size.toFixed(2)
+  render: (player) =>
+    #@bank_value.html player.pot.size.toFixed(2)
     
 module.exports = Bank

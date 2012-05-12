@@ -1,0 +1,61 @@
+<section class="dealer hand">  
+  <div class="row">
+    <div class="span12">
+      <ul class="cards unstyled">
+        <li class="card face-down"></li>
+        <li class="card face-down"></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span12">
+      <span class="score label label-info">Dealer: <span class="value">0</span></span>
+    </div>
+  </div>  
+</section>
+
+<section class="pot row">
+  <div class="span12">
+    <div class="btn-group">
+      <span class="pot btn btn-inverse disabled">Pot: $<span class="value">0</span></span>
+      <span class="win btn btn-inverse disabled">Win: $<span class="value">0</span></span>
+    </div>
+  </div>
+</section>
+
+<section class="player hand">  
+  <div class="row">
+    <div class="span12">
+      <span class="score label label-info">Player: <span class="value">0</span></span>
+      <span class="bank label label-inverse">Bank: $<span class="value">0</span></span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span12">
+      <ul class="cards unstyled">
+        <li class="card face-down"></li>
+        <li class="card face-down"></li>
+      </ul>
+    </div>
+  </div>  
+</section>
+
+<div class="navbar navbar-fixed-bottom">
+  <div class="navbar-inner">
+    <section class="actions container">
+      <div class="nav deal btn-group">
+        <button class="btn btn-primary">Deal</button>
+      </div>
+      <div class="nav action btn-group">
+        <button class="hit action btn">Hit</button>
+        <button class="stand action btn">Stand</button>
+        <button class="surrender action btn">Surrender</button>
+      </div>
+      <div class="nav bet btn-group">
+        <button class="btn btn-success" data-amount="10"></button>
+        <button class="btn btn-warning" data-amount="25"></button>
+        <button class="btn btn-danger" data-amount="50"></button>
+      </div>
+    </section>
+  </div>
+</div>

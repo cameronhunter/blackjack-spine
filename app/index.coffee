@@ -13,19 +13,23 @@ class App extends Spine.Controller
   DEFAULT_INITIAL_POT_SIZE = 500
 
   elements:
-    'section.bank': 'bank_section'
+    '.blackjack-table': 'table'
 
   events:
-    'click .surrender': 'start'
+    'click .surrender': 'restart'
 
   constructor: ->
     super
     @player = new Player DEFAULT_INITIAL_POT_SIZE
-    @bank = new Bank(el: @bank_section, player:@player)
     @start()
   
-  start: ->
-    @round = new Round(odds: ODDS, max_bet: MAX_BET, blinds:DEFAULT_BLINDS, player:@player, el:@el)
+  start: =>
+    @round = new Round(odds: ODDS, max_bet: MAX_BET, blinds:DEFAULT_BLINDS, player:@player)
+    @table.html @round.el
+
+  restart: ->
+    @round.release()
+    @start()
   
 module.exports = App
     

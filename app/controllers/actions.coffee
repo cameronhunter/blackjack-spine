@@ -1,5 +1,4 @@
 Spine = require('spine')
-Pot   = require('controllers/pot')
 
 class Actions extends Spine.Controller
 
@@ -10,10 +9,10 @@ class Actions extends Spine.Controller
 
   events:
     'click .deal': 'deal'
+    'click .surrender': 'setup'
 
   constructor: ->
     super
-    @html require('views/actions')()
     @setup()
   
   setup: ->
@@ -32,6 +31,12 @@ class Actions extends Spine.Controller
     selection.hide()
     
   show = (selection) ->
-    selection.show()
+    enable selection.show()
+    
+  disable = (selection) ->
+    selection.attr('disabled', true)
+    
+  enable = (selection) ->
+    selection.removeAttr('disabled')
   
 module.exports = Actions
