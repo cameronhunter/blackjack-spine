@@ -60,3 +60,10 @@ describe 'Hand', ->
     expect( hand.score() ).toEqual 10
     hand.add four_of_spades
     expect( hand.score() ).toEqual 10
+    
+  it 'should show the correct score when cards are revealed', ->
+    hand = new Hand(opponent:yes)
+    hand.add(card) for card in [queen_of_hearts, ace_of_spades]
+    expect( hand.score() ).toEqual 10
+    hand.reveal()
+    expect( hand.score() ).toEqual 21
