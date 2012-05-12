@@ -71,7 +71,7 @@ class Round extends Spine.Controller
   stand: ->
     @dealers_hand.reveal()
     if @dealers_hand.score() < 17
-      @hit @dealers_hand # disable the hit/bet/surrender button
+      @hit @dealers_hand
       @stand()
     else
       @outcome()
