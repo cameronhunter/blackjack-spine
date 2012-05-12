@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Jack Black loves Blackjack</title>
+    <title>Blackjack</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Blackjack game implemented using SpineJS and Bootstrap">
     <meta name="author" content="Cameron Hunter (@cameronhunter)">
@@ -12,15 +12,6 @@
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <script src="/application.js"></script>
-    <script>
-      var jQuery  = require("jqueryify");
-      var exports = this;
-      jQuery(function(){
-        var App = require("index");
-        exports.app = new App({el: $("body")});
-      });
-    </script>
   </head>
 
   <body>
@@ -33,5 +24,14 @@
       <div class="blackjack-table"></div>
     </div>
     
+    <script src="/application.js"></script>
+    <script>
+      var jQuery  = require("jqueryify");
+      var exports = this;
+      jQuery(function(){
+        var App = require("index");
+        exports.app = new App({el: $("body")});
+      });
+    </script>
   </body>
 </html>
