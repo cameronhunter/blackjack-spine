@@ -19,6 +19,7 @@ class Round extends Spine.Controller
     'section.bank': 'bank_section'
     '.player .score': 'players_score'
     '.dealer .score': 'dealers_score'
+    '.deal': 'deal_button'
   
   events:
     'click .deal': 'deal'

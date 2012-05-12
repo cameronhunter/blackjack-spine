@@ -46,12 +46,16 @@
   <div class="navbar-inner">
     <div class="container">
       <section class="actions">
-        <div class="nav btn-group">
-          <button class="deal btn btn-primary">Deal</button>
+        <div class="deal nav btn-group">
+          <button class="btn btn-primary">Deal</button>
+        </div>
+        <div class="continue nav btn-group">
+          <button class="btn btn-success">Continue</button>
         </div>
         <div class="nav action btn-group">
           <button class="hit action btn">Hit</button>
           <button class="stand action btn">Stand</button>
+          <button class="surrender action btn">Surrender</button>
         </div>
         <div class="nav bet btn-group">
           <button class="btn btn-success" data-amount="10"></button>

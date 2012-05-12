@@ -3,6 +3,9 @@ Spine = require('spine')
 class Actions extends Spine.Controller
 
   elements:
+    '.deal': 'deal_button'
+    '.continue': 'continue_button'
+    '.surrender': 'surrender_button'
     '.bet': 'bet_buttons'
     '.action': 'action_buttons'
 
@@ -11,16 +14,22 @@ class Actions extends Spine.Controller
 
   constructor: ->
     super
-    Spine.bind 'winner', => disable @action_buttons
+    Spine.bind 'winner', @finished
     @setup()
   
   setup: =>
     show @bet_buttons
     hide @action_buttons
+    hide @continue_button
   
-  deal: ->
+  deal: =>
     hide @bet_buttons
+    hide @deal_button
     show @action_buttons
+  
+  finished: =>
+    disable @action_buttons
+    show @continue_button
   
   # Private
   

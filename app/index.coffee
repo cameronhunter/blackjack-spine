@@ -18,6 +18,7 @@ class App extends Spine.Controller
 
   events:
     'click .surrender': 'restart'
+    'click .continue': 'restart'
 
   constructor: ->
     super
