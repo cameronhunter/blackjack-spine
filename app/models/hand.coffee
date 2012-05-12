@@ -13,7 +13,6 @@ class Hand extends Spine.Model
   constructor: (attrs) ->
     @cards = attrs?.cards ? []
     @opponent = attrs?.opponent
-    @reload()
   
   size: -> @cards.length
   
