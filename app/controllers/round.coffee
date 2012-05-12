@@ -35,6 +35,10 @@ class Round extends Spine.Controller
     @pot = new Pot(@pot_size, @odds)
     @players_hand = new Cards
     @dealers_hand = new Cards(opponent:yes)
+
+    Cards.unbind()
+    @players_hand.bind 'blackjack', @outcome
+    @dealers_hand.bind 'bust', @outcome
     
     new Hand(el:@dealers_section, hand:@dealers_hand)
     new Hand(el:@players_section, hand:@players_hand)
@@ -71,15 +75,16 @@ class Round extends Spine.Controller
 
   outcome: =>
     if @players_hand.is_bust()
-      @log 'You lose', @players_hand.score(), @dealers_hand.score()
+      Spine.trigger 'winner', 'You Lose'
       return
       
     if @dealers_hand.is_bust() or @players_hand.score() > @dealers_hand.score()
-      @log 'Winner winner chicken dinner', @players_hand.score(), @dealers_hand.score()
+      Spine.trigger 'winner', 'You Win'
       @pay_into_bank @pot.winnings()
       return
 
     if @players_hand.score() == @dealers_hand.score()
+      Spine.trigger 'winner', 'Draw'
       @log 'Push', @players_hand.score(), @dealers_hand.score()
 
   hit_me: ->
@@ -91,7 +96,5 @@ class Round extends Spine.Controller
   pay_into_pot: (amount) ->
     @player.bets amount
     @pot.credit amount
-    @player.save()
-    @pot.save()
 
 module.exports = Round

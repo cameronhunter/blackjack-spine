@@ -28,7 +28,7 @@ class App extends Spine.Controller
     @round = new Round(odds:ODDS, pot_size:POT_SEED, max_bet:MAX_BET, blinds:BLINDS, player:@player)
     @table.html @round.el
 
-  restart: ->
+  restart: =>
     @round.release()
     @start()
   
