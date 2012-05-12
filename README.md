@@ -4,7 +4,7 @@ Written in [Coffeescript](http://coffeescript.org) using [SpineJS](http://spinej
 
 Live Demo
 ---------
-Sorry about the ugly URL: http://blackjack-spine.s3-website-us-west-1.amazonaws.com
+Play the [blackjack-spine demo](http://blackjack-spine.s3-website-us-west-1.amazonaws.com)
 
 ![blackjack-spine screenshot](http://blackjack-spine.s3-website-us-west-1.amazonaws.com/screenshot.png)
 
