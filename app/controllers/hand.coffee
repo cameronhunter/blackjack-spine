@@ -10,7 +10,7 @@ class Hand extends Spine.Controller
   constructor: ->
     super
     @hand.bind 'change', @update_cards
-  
+      
   update_cards: =>
     @cards.html @template(@hand.cards)
       

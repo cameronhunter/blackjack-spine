@@ -19,7 +19,6 @@ class Round extends Spine.Controller
     'section.bank': 'bank_section'
     '.player .score': 'players_score'
     '.dealer .score': 'dealers_score'
-    '.deal': 'deal_button'
   
   events:
     'click .deal': 'deal'
@@ -38,16 +37,16 @@ class Round extends Spine.Controller
     @dealers_hand = new Cards(opponent:yes)
 
     Cards.unbind()
-    @players_hand.bind 'blackjack', @outcome
     @players_hand.bind 'bust', @outcome
-    @dealers_hand.bind 'blackjack', @outcome
     @dealers_hand.bind 'bust', @outcome
+    @players_hand.bind 'blackjack', @outcome
+    @dealers_hand.bind 'blackjack', @outcome
     
     new Hand(el:@dealers_section, hand:@dealers_hand)
     new Hand(el:@players_section, hand:@players_hand)
     
-    new Score(hand:@players_hand, el:@players_score)
-    new Score(hand:@dealers_hand, el:@dealers_score)
+    new Score(el:@dealers_score, hand:@dealers_hand)
+    new Score(el:@players_score, hand:@players_hand)
 
     new MoneyPot(el:@pot_section, pot:@pot)
     new Bank(el:@bank_section, player:@player)
