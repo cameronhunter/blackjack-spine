@@ -1,0 +1,112 @@
+.card {
+  position: relative;
+  width: 119px;
+  height: 166px;
+  -moz-box-shadow: 0 0 7px #111;
+  -webkit-box-shadow: 0 0 7px #111;
+  box-shadow: 0 0 7px #111;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  text-align: left;
+  display: block;
+  float: left;
+  background: #49afcd url("/img/larry.png") -18px -18px repeat;
+}
+.card[data-suit]:after {
+  display: inline-block;
+  margin: 5px 0 0 5px;
+  font-size: 32px;
+  line-height: 26px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.card:not(.face-down)[data-suit] {
+  background: #fff;
+}
+.card:not(.face-down)[data-suit]:after {
+  white-space: pre;
+  content: attr(data-name) '\A' attr(data-suit);
+}
+.card:not(.face-down)[data-suit=♥]:after,
+.card:not(.face-down)[data-suit=♦]:after {
+  color: #f00;
+}
+.hand .card:not(:first-child) {
+  margin-left: -70px;
+}
+.hand .score {
+  text-transform: capitalize;
+}
+.player.score {
+  margin-bottom: 5px;
+}
+.dealer.score {
+  margin-top: 5px;
+}
+.hand .card:nth-child(odd) {
+  -webkit-transform: rotate(-2deg);
+  -moz-transform: rotate(-2deg);
+  -ms-transform: rotate(-2deg);
+  -o-transform: rotate(-2deg);
+  transform: rotate(-2deg);
+}
+.hand .card:nth-child(even) {
+  -webkit-transform: rotate(2deg);
+  -moz-transform: rotate(2deg);
+  -ms-transform: rotate(2deg);
+  -o-transform: rotate(2deg);
+  transform: rotate(2deg);
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  background: #006400;
+}
+h1 {
+  color: #fff;
+}
+hr {
+  color: #fff;
+  background-color: #fff;
+  height: 5px;
+}
+section.pot {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.label {
+  text-transform: capitalize;
+}
+.winner .value {
+  opacity: 1 !important;
+}
+h1 a,
+h1 small {
+  color: #fff;
+}
+h1 a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+.row {
+  margin-top: 15px;
+}
+.navbar {
+  -moz-box-shadow: 0 0 5px #444;
+  -webkit-box-shadow: 0 0 5px #444;
+  box-shadow: 0 0 5px #444;
+}
+.btn-group {
+  display: inline-block;
+}
+.bet button:after {
+  content: '$' attr(data-amount);
+}
+.alert-inverse {
+  background: #333;
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+  border: none;
+}
