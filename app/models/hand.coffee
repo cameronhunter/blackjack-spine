@@ -25,16 +25,17 @@ class Hand extends Spine.Model
   add: (card) -> 
     throw "Hand is already bust. #{card.name for card in @cards}" if @is_bust()
     throw "Hand is already blackjack. #{card.name for card in @cards}" if @is_blackjack()
-    #card.hidden = @cards.length > 0 and @opponent
+    card.hidden = @cards.length > 0 and @opponent
     @cards.push( adapt card )
     @save()
 
   reveal: ->
-    #
+    (card.hidden = false) for card in @cards
+    @save()
 
-  score: (cards = @cards) ->
+  score: ->
     total = 0; aces = 0
-    for card in cards when !card.hidden
+    for card in @cards when !card.hidden
       score = score_of card
       total += score
       aces += 1 if score == ACE_HIGH_SCORE

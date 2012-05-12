@@ -16,7 +16,7 @@ class Round extends Spine.Controller
     'section.dealer': 'dealers_section'
     'section.pot': 'pot_section'
     'section.actions': 'actions_section'
-    '.player .bank': 'bank_section'
+    'section.bank': 'bank_section'
     '.player .score': 'players_score'
     '.dealer .score': 'dealers_score'
   
@@ -32,7 +32,7 @@ class Round extends Spine.Controller
     
     @deck = Deck.shuffle()
     
-    @pot = new Pot(0, @odds)
+    @pot = new Pot(@pot_size, @odds)
     @players_hand = new Cards
     @dealers_hand = new Cards(opponent:yes)
     
@@ -43,12 +43,12 @@ class Round extends Spine.Controller
     new Score(hand:@dealers_hand, el:@dealers_score)
 
     new MoneyPot(el:@pot_section, pot:@pot)
-    new Bank(el:@bank_section)
+    new Bank(el:@bank_section, player:@player)
 
     new Actions(el:@actions_section)
     
     @pay_into_pot @blinds
-
+    
   deal: ->
     @hit @players_hand
     @hit @dealers_hand
@@ -79,7 +79,8 @@ class Round extends Spine.Controller
       @pay_into_bank @pot.winnings()
       return
 
-    @log 'Push', @players_hand.score(), @dealers_hand.score()
+    if @players_hand.score() == @dealers_hand.score()
+      @log 'Push', @players_hand.score(), @dealers_hand.score()
 
   hit_me: ->
     @hit @players_hand

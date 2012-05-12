@@ -12,8 +12,10 @@ class Score extends Spine.Controller
   update_score: =>
     if @hand.is_blackjack()
       @score.html( 'Blackjack!' )
+      @hand.trigger 'blackjack'
     else if @hand.is_bust()
       @score.html( 'Bust!' )
+      @hand.trigger 'bust'
     else
       @score.html( @hand.score() )
     

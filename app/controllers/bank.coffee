@@ -8,9 +8,9 @@ class Bank extends Spine.Controller
 
   constructor: ->
     super
-    Player.bind 'change', @render
+    @player.bind 'change', @render
   
-  render: (player) =>
-    #@bank_value.html player.pot.size.toFixed(2)
+  render: =>
+    @bank_value.html @player.pot.size.toFixed(2)
     
 module.exports = Bank
