@@ -39,6 +39,8 @@ class Round extends Spine.Controller
 
     Cards.unbind()
     @players_hand.bind 'blackjack', @outcome
+    @players_hand.bind 'bust', @outcome
+    @dealers_hand.bind 'blackjack', @outcome
     @dealers_hand.bind 'bust', @outcome
     
     new Hand(el:@dealers_section, hand:@dealers_hand)
@@ -75,18 +77,29 @@ class Round extends Spine.Controller
       @outcome()
 
   outcome: =>
-    if @players_hand.is_bust()
-      Spine.trigger 'winner', 'You Lose'
-      return
-      
-    if @dealers_hand.is_bust() or @players_hand.score() > @dealers_hand.score()
-      Spine.trigger 'winner', 'You Win'
-      @pay_into_bank @pot.winnings()
+    player_score = @players_hand.score()
+    dealer_score = @dealers_hand.score()
+    
+    if player_score == dealer_score
+      @draw()
       return
 
-    if @players_hand.score() == @dealers_hand.score()
-      Spine.trigger 'winner', 'Draw'
-      @log 'Push', @players_hand.score(), @dealers_hand.score()
+    if @dealers_hand.is_bust() or (!@players_hand.is_bust() and (player_score > dealer_score))
+      @win()
+      return
+      
+    @lose()
+
+  win: ->
+    Spine.trigger 'result', 'You Win'
+    @pay_into_bank @pot.winnings()
+    
+  draw: ->
+    Spine.trigger 'result', 'Draw'
+    @pay_into_bank @pot.size - @blinds
+    
+  lose: ->
+    Spine.trigger 'result', 'You Lose'
 
   hit_me: ->
     @hit @players_hand

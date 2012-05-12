@@ -10,7 +10,7 @@ class Pot extends Spine.Controller
 
   constructor: ->
     super
-    Spine.bind 'winner', @show_winner
+    Spine.bind 'result', @show_winner
     @pot.bind 'change', @render
   
   show_winner: (message) =>

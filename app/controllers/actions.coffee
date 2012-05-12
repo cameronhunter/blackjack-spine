@@ -14,7 +14,7 @@ class Actions extends Spine.Controller
 
   constructor: ->
     super
-    Spine.bind 'winner', @finished
+    Spine.bind 'result', @finished
     @setup()
   
   setup: =>
