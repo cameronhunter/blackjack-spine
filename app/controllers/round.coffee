@@ -43,6 +43,7 @@ class Round extends Spine.Controller
     hand.deal @deck.draw()
     
   stand: ->
+    @dealers_hand.reveal()
     #@hit @dealers_hand # disable the hit/bet/surrender button
 
   outcome: (e) ->

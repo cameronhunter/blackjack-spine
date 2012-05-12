@@ -19,7 +19,11 @@ class Hand extends Spine.Controller
       @hand.save()
     catch e
       # Foo
-  
+
+  reveal: ->
+    card.hidden = no for card in @hand.cards
+    @hand.save()
+
   render: =>
     @cards.html @template(@hand.cards)
     @score.html @hand.score()
