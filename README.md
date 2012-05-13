@@ -1,6 +1,6 @@
 blackjack-spine
 ===============
-Written in [Coffeescript](http://coffeescript.org) using [SpineJS](http://spinejs.com), made beautiful by [Bootstrap](http://getbootstrap.com). Makes use of [node-shuffle](https://github.com/TroyGoode/node-shuffle) for creating and shuffling (using [Fisher-Yates/Knuth algorithm](http://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle)) the deck.
+Written in [Coffeescript](http://coffeescript.org) using [SpineJS](http://spinejs.com), made beautiful by [Bootstrap](http://getbootstrap.com). Makes use of [node-shuffle](https://github.com/TroyGoode/node-shuffle) for creating and shuffling the deck (using [Fisher-Yates/Knuth algorithm](http://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle)).
 
 Live Demo
 ---------
