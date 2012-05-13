@@ -1,4 +1,6 @@
 Spine = require('spine')
+Player = require('models/player')
+$ = Spine.$
 
 class Actions extends Spine.Controller
 
@@ -16,6 +18,7 @@ class Actions extends Spine.Controller
     super
     @html require('views/actions')()
     Spine.bind 'result', @finished
+    Player.bind 'change', @bank_check
     @setup()
   
   setup: =>
@@ -32,6 +35,11 @@ class Actions extends Spine.Controller
     hide @action_buttons
     show @continue_button
   
+  bank_check: (player) =>
+    for el in @bet_buttons.find('button')
+      bet_button = $(el)
+      (disable bet_button) if bet_button.data('amount') > player.pot.size
+      
   # Private
   
   hide = (selection) ->
