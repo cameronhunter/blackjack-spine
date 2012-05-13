@@ -2,7 +2,6 @@ require('lib/setup')
 
 Spine = require('spine')
 Player = require('models/player')
-Bank = require('controllers/bank')
 Round = require('controllers/round')
 
 class App extends Spine.Controller

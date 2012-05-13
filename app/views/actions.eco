@@ -1,0 +1,16 @@
+<div class="deal nav btn-group">
+  <button class="btn btn-primary btn-large">Deal</button>
+</div>
+<div class="continue nav btn-group">
+  <button class="btn btn-success btn-large">Continue</button>
+</div>
+<div class="nav action btn-group">
+  <button class="hit action btn btn-large">Hit</button>
+  <button class="stand action btn btn-large">Stand</button>
+  <button class="surrender action btn btn-large">Surrender</button>
+</div>
+<div class="nav bet btn-group">
+  <button class="btn btn-success btn-large" data-amount="10">$10</button>
+  <button class="btn btn-warning btn-large" data-amount="25">$25</button>
+  <button class="btn btn-danger btn-large" data-amount="50">$50</button>
+</div>

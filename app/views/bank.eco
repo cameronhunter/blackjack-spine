@@ -1,0 +1,4 @@
+<div class="btn-group nav">
+  <div class="btn btn-inverse btn-large disabled">Bank</div>
+  <div class="btn btn-inverse btn-large disabled">$<span class="value">0</span></div>
+</div>

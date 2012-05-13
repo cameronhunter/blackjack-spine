@@ -14,6 +14,7 @@ class Actions extends Spine.Controller
 
   constructor: ->
     super
+    @html require('views/actions')()
     Spine.bind 'result', @finished
     @setup()
   

@@ -1,5 +1,4 @@
 Spine = require('spine')
-Player = require('models/player')
 
 class Bank extends Spine.Controller
 
@@ -8,6 +7,7 @@ class Bank extends Spine.Controller
 
   constructor: ->
     super
+    @html require('views/bank')()
     @player.bind 'change', @render
   
   render: =>

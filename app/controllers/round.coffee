@@ -12,13 +12,8 @@ $ = Spine.$
 class Round extends Spine.Controller
   
   elements:
-    'section.player': 'players_section'
-    'section.dealer': 'dealers_section'
-    'section.pot': 'pot_section'
     'section.actions': 'actions_section'
     'section.bank': 'bank_section'
-    '.player .score': 'players_score'
-    '.dealer .score': 'dealers_score'
   
   events:
     'click .deal': 'deal'
@@ -40,15 +35,11 @@ class Round extends Spine.Controller
     Cards.bind 'bust', @outcome
     Cards.bind 'blackjack', @outcome
     
-    new Hand(el:@dealers_section, hand:@dealers_hand)
-    new Hand(el:@players_section, hand:@players_hand)
+    @append new Hand(hand:@dealers_hand, name:'dealer')
+    @append new MoneyPot(pot:@pot)
+    @append new Hand(hand:@players_hand, name:'player', score_on_top:yes)
     
-    new Score(el:@dealers_score, hand:@dealers_hand)
-    new Score(el:@players_score, hand:@players_hand)
-
-    new MoneyPot(el:@pot_section, pot:@pot)
     new Bank(el:@bank_section, player:@player)
-
     new Actions(el:@actions_section)
     
     @pay_into_pot @blinds

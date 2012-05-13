@@ -1,6 +1,7 @@
 Spine = require('spine')
 
 class Pot extends Spine.Controller
+  tag: 'section'; className: 'pot row'
 
   elements:
     '.winner': 'winner'
@@ -10,6 +11,7 @@ class Pot extends Spine.Controller
 
   constructor: ->
     super
+    @html require('views/pot')()
     Spine.bind 'result', @show_winner
     @pot.bind 'change', @render
   
