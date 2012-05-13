@@ -10,6 +10,7 @@ class Actions extends Spine.Controller
     '.surrender': 'surrender_button'
     '.bet': 'bet_buttons'
     '.action': 'action_buttons'
+    '.start-over': 'start_over_button'
 
   events:
     'click .deal': 'deal'
@@ -18,6 +19,7 @@ class Actions extends Spine.Controller
     super
     @html require('views/actions')()
     Spine.bind 'result', @finished
+    Spine.bind 'finish', @can_play
     Player.bind 'change', @bank_check
     @setup()
   
@@ -25,6 +27,7 @@ class Actions extends Spine.Controller
     show @bet_buttons
     hide @action_buttons
     hide @continue_button
+    hide @start_over_button
   
   deal: =>
     hide @bet_buttons
@@ -34,6 +37,13 @@ class Actions extends Spine.Controller
   finished: =>
     hide @action_buttons
     show @continue_button
+
+  can_play: (player) =>
+    if player.pot.size == 0
+      show @start_over_button
+      hide @bet_buttons
+      hide @deal_button
+      hide @continue_button
   
   bank_check: (player) =>
     for el in @bet_buttons.find('button')

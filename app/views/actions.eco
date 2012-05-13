@@ -4,6 +4,9 @@
 <div class="continue nav btn-group">
   <button class="btn btn-success btn-large">Continue</button>
 </div>
+<div class="start-over nav btn-group">
+  <a href="/" class="btn btn-danger btn-large">Start over</a>
+</div>
 <div class="nav action btn-group">
   <button class="hit action btn btn-large">Hit</button>
   <button class="stand action btn btn-large">Stand</button>

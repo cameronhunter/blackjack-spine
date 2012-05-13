@@ -96,7 +96,10 @@ class Round extends Spine.Controller
     @player.wins amount
 
   pay_into_pot: (amount) ->
-    @player.bets amount
-    @pot.credit amount
+    try
+      @player.bets amount
+      @pot.credit amount
+    catch e
+      Spine.trigger 'finish', @player
 
 module.exports = Round
