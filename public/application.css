@@ -1,3 +1,6 @@
+.score {
+  text-transform: capitalize;
+}
 .card {
   width: 119px;
   height: 166px;
@@ -31,9 +34,6 @@
 .card.face-down div {
   visibility: hidden;
 }
-.hand .score {
-  text-transform: capitalize;
-}
 .hand .card:not(:first-child) {
   margin-left: -70px;
 }
@@ -50,6 +50,13 @@
   -ms-transform: rotate(2deg);
   -o-transform: rotate(2deg);
   transform: rotate(2deg);
+}
+.pot .btn-group {
+  float: left;
+  margin-right: 5px;
+}
+.winner .value {
+  opacity: 1 !important;
 }
 * {
   box-sizing: border-box;
@@ -69,12 +76,6 @@ section.pot {
   margin-top: 30px;
   margin-bottom: 30px;
 }
-.label {
-  text-transform: capitalize;
-}
-.winner .value {
-  opacity: 1 !important;
-}
 h1 a,
 h1 small {
   color: #fff;
@@ -90,9 +91,6 @@ h1 a:hover {
   -moz-box-shadow: 0 0 5px #444;
   -webkit-box-shadow: 0 0 5px #444;
   box-shadow: 0 0 5px #444;
-}
-.btn-group {
-  display: inline-block;
 }
 .alert-inverse {
   background: #333;
