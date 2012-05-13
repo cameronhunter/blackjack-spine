@@ -26,7 +26,7 @@ class App extends Spine.Controller
     @start()
   
   start: =>
-    @round = new Round(odds:ODDS, pot_size:POT_SEED, max_bet:MAX_BET, blinds:BLINDS)
+    @round = new Round(odds:ODDS, pot_size:POT_SEED, max_bet:MAX_BET, blinds:BLINDS, player:@player)
     @table.html @round.el
 
   restart: =>
