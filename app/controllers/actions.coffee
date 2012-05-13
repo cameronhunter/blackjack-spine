@@ -28,7 +28,7 @@ class Actions extends Spine.Controller
     show @action_buttons
   
   finished: =>
-    disable @action_buttons
+    hide @action_buttons
     show @continue_button
   
   # Private
