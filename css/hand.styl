@@ -1,6 +1,3 @@
-.hand .card:not(:first-child)
-  margin-left: -75px
-
 .hand .score
   text-transform: capitalize
 
@@ -10,9 +7,12 @@
 .dealer.score
   margin-top: 5px
 
-.hand 
-  .card:nth-child(odd)
+.hand .card
+  &:not(:first-child)
+    margin-left: -75px
+    
+  &:nth-child(odd)
     transform: rotate(-2deg)
     
-  .card:nth-child(even)
+  &:nth-child(even)
     transform: rotate(2deg)

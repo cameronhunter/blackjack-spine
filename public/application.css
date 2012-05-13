@@ -1,7 +1,7 @@
 .card {
-  position: relative;
   width: 119px;
   height: 166px;
+  position: relative;
   -moz-box-shadow: 0 0 7px #111;
   -webkit-box-shadow: 0 0 7px #111;
   box-shadow: 0 0 7px #111;
@@ -9,7 +9,6 @@
   -webkit-border-radius: 3px;
   border-radius: 3px;
   text-align: left;
-  display: block;
   float: left;
   margin-left: 5px;
   background: #fff;
@@ -32,9 +31,6 @@
 .card.face-down div {
   visibility: hidden;
 }
-.hand .card:not(:first-child) {
-  margin-left: -75px;
-}
 .hand .score {
   text-transform: capitalize;
 }
@@ -43,6 +39,9 @@
 }
 .dealer.score {
   margin-top: 5px;
+}
+.hand .card:not(:first-child) {
+  margin-left: -75px;
 }
 .hand .card:nth-child(odd) {
   -webkit-transform: rotate(-2deg);
