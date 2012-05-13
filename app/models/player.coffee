@@ -4,12 +4,6 @@ Pot = require('models/pot')
 class Player extends Spine.Model
   @configure 'Player', 'pot'
 
-  constructor: (pot_size) ->
-    @pot = new Pot pot_size
-
-  can_afford: (amount) ->
-    @pot.size >= amount
-
   bets: (amount) -> 
     @pot.debit amount
     @save()

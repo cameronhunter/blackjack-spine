@@ -39,7 +39,7 @@ class Round extends Spine.Controller
     @append new MoneyPot(pot:@pot)
     @append new Hand(hand:@players_hand, name:'player', score_on_top:yes)
     
-    new Bank(el:@bank_section, player:@player)
+    new Bank(el:@bank_section)
     new Actions(el:@actions_section)
     
     @pay_into_pot @blinds

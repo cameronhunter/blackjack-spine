@@ -1,6 +1,7 @@
 require('lib/setup')
 
 Spine = require('spine')
+Pot = require('models/pot')
 Player = require('models/player')
 Round = require('controllers/round')
 
@@ -21,11 +22,11 @@ class App extends Spine.Controller
 
   constructor: ->
     super
-    @player = new Player PLAYER_POT_SIZE
+    @player = new Player(pot: new Pot PLAYER_POT_SIZE)
     @start()
   
   start: =>
-    @round = new Round(odds:ODDS, pot_size:POT_SEED, max_bet:MAX_BET, blinds:BLINDS, player:@player)
+    @round = new Round(odds:ODDS, pot_size:POT_SEED, max_bet:MAX_BET, blinds:BLINDS)
     @table.html @round.el
 
   restart: =>
