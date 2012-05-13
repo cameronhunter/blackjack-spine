@@ -11,29 +11,29 @@
   text-align: left;
   display: block;
   float: left;
-  background: #49afcd url("/img/larry.png") -18px -18px repeat;
-}
-.card[data-suit]:after {
-  display: inline-block;
-  margin: 5px 0 0 5px;
+  margin-left: 5px;
+  background: #fff;
+  text-transform: uppercase;
   font-size: 32px;
   line-height: 26px;
   font-weight: bold;
-  text-transform: uppercase;
+  padding: 5px;
 }
-.card:not(.face-down)[data-suit] {
-  background: #fff;
+.card div {
+  clear: right;
 }
-.card:not(.face-down)[data-suit]:after {
-  white-space: pre;
-  content: attr(data-name) '\A' attr(data-suit);
-}
-.card:not(.face-down)[data-suit=♥]:after,
-.card:not(.face-down)[data-suit=♦]:after {
+.card.♥,
+.card.♦ {
   color: #f00;
 }
+.card.face-down {
+  background: #49afcd url("/img/larry.png") -18px -18px repeat;
+}
+.card.face-down div {
+  visibility: hidden;
+}
 .hand .card:not(:first-child) {
-  margin-left: -70px;
+  margin-left: -75px;
 }
 .hand .score {
   text-transform: capitalize;

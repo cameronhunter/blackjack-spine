@@ -8,23 +8,21 @@
   display: block
   float: left
   margin-left: 5px
+  background: #fff
+  text-transform: uppercase
+  font-size: 32px
+  line-height: 26px
+  font-weight: bold
+  padding: 5px
+
+  div
+    clear: right
+
+  &.♥, &.♦
+    color: red
+  
+.card.face-down
   background: #49afcd url(/img/larry.png) -18px -18px repeat
 
-  &[data-suit]:after
-    display: inline-block
-    margin: 5px 0 0 5px
-    font-size: 32px
-    line-height: 26px
-    font-weight: bold
-    text-transform: uppercase
-
-.card:not(.face-down)
-  &[data-suit]
-    background: #fff
-    
-  &[data-suit]:after
-    white-space: pre
-    content: attr(data-name) '\A' attr(data-suit)
-
-  &[data-suit=♥]:after, &[data-suit=♦]:after
-    color: red
+  div
+    visibility: hidden
