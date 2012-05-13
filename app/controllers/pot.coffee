@@ -12,8 +12,8 @@ class Pot extends Spine.Controller
   constructor: ->
     super
     @html require('views/pot')()
-    Spine.bind 'result', @show_winner
     @pot.bind 'change', @render
+    Spine.bind 'result', @show_winner
   
   show_winner: (message) =>
     @winner_message.html message
