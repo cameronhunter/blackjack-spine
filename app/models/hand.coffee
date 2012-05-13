@@ -57,15 +57,13 @@ class Hand extends Spine.Model
     {suit: suit_name(card), name: card_name(card), hidden: card.hidden}
   
   suit_name = (card) ->
-    switch "#{card.suit?.toLowerCase()}s"
-      when 'hearts' then '♥'
-      when 'diamonds' then '♦'
-      when 'spades' then '♠'
-      when 'clubs' then '♣'
+    switch card.suit.toLowerCase()
+      when 'heart' then '♥'
+      when 'diamond' then '♦'
+      when 'spade' then '♠'
+      when 'club' then '♣'
   
   card_name = (card) ->
-    name = card.description?.toUpperCase()[0]
-    return name if name is ACE or name in ROYALTY
-    return card.sort
+    if 1 < card.sort <= 10 then card.sort else card.description.toUpperCase().substring(0,1)
   
 module.exports = Hand
