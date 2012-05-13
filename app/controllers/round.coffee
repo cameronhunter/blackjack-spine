@@ -37,10 +37,8 @@ class Round extends Spine.Controller
     @dealers_hand = new Cards(opponent:yes)
 
     Cards.unbind()
-    @players_hand.bind 'bust', @outcome
-    @dealers_hand.bind 'bust', @outcome
-    @players_hand.bind 'blackjack', @outcome
-    @dealers_hand.bind 'blackjack', @outcome
+    Cards.bind 'bust', @outcome
+    Cards.bind 'blackjack', @outcome
     
     new Hand(el:@dealers_section, hand:@dealers_hand)
     new Hand(el:@players_section, hand:@players_hand)
