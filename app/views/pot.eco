@@ -1,0 +1,9 @@
+<div class="span12">
+  <div class="btn-group">
+    <div class="pot btn btn-inverse disabled">Pot: $<span class="value">0</span></div>
+    <div class="win btn btn-inverse disabled">Win: $<span class="value">0</span></div>
+  </div>
+  <div class="winner hidden btn-group">
+    <span class="value btn btn-warning disabled"></span>
+  </div>
+</div>

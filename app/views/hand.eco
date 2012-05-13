@@ -1,0 +1,8 @@
+<div class="row">
+  <div class="span12">
+    <ul class="cards unstyled">
+      <li class="card face-down"></li>
+      <li class="card face-down"></li>
+    </ul>
+  </div>
+</div>

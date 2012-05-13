@@ -1,0 +1,3 @@
+<div class="span12">
+  <span class="label label-info"><%= @name %>: <span class="value">0</span></span>
+</div>
