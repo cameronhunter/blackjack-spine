@@ -1,16 +1,8 @@
 {
   "dependencies": [
     "es5-shimify", 
-    "json2ify", 
     "jqueryify", 
     "spine",
-    "spine/lib/local",
-    "spine/lib/ajax",
-    "spine/lib/route",
-    "spine/lib/tmpl",
-    "spine/lib/manager",
-    "spine/lib/relation",
-    "spine/lib/list",
     "shuffle"
   ],
   "libs": []
