@@ -58,6 +58,23 @@
 .pot .btn-group .btn {
   opacity: 1;
 }
+@media (max-width: 767px) {
+  .navbar {
+    margin-left: 0 !important;
+  }
+}
+@media (max-width: 480px) {
+  .navbar {
+    margin-left: 0 !important;
+  }
+  .card {
+    width: 90px;
+    height: 125px;
+  }
+  .hand .card:not(:first-child) {
+    margin-left: -40px;
+  }
+}
 * {
   box-sizing: border-box;
 }

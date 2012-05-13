@@ -1,4 +1,4 @@
 <div class="btn-group nav">
-  <span class="btn btn-inverse btn-large disabled">Bank</span>
+  <span class="btn btn-inverse btn-large disabled hidden-phone">Bank</span>
   <span class="btn btn-inverse btn-large disabled">$<span class="value">0</span></span>
 </div>
