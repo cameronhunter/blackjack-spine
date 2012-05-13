@@ -55,8 +55,8 @@
   float: left;
   margin-right: 5px;
 }
-.winner .value {
-  opacity: 1 !important;
+.pot .btn-group .btn {
+  opacity: 1;
 }
 * {
   box-sizing: border-box;
@@ -64,23 +64,15 @@
 body {
   background: #006400;
 }
-h1 {
+.page-header {
+  color: #fff;
+  border-bottom: 1px solid #fff;
+}
+.page-header a,
+.page-header small {
   color: #fff;
 }
-hr {
-  color: #fff;
-  background-color: #fff;
-  height: 5px;
-}
-section.pot {
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-h1 a,
-h1 small {
-  color: #fff;
-}
-h1 a:hover {
+.page-header a:hover {
   color: #fff;
   text-decoration: underline;
 }
@@ -91,10 +83,4 @@ h1 a:hover {
   -moz-box-shadow: 0 0 5px #444;
   -webkit-box-shadow: 0 0 5px #444;
   box-shadow: 0 0 5px #444;
-}
-.alert-inverse {
-  background: #333;
-  color: #fff;
-  text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
-  border: none;
 }
