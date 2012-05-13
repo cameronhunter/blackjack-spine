@@ -100,9 +100,6 @@ h1 a:hover {
 .btn-group {
   display: inline-block;
 }
-.bet button:after {
-  content: '$' attr(data-amount);
-}
 .alert-inverse {
   background: #333;
   color: #fff;

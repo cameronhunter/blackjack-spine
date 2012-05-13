@@ -58,9 +58,9 @@
           <button class="surrender action btn">Surrender</button>
         </div>
         <div class="nav bet btn-group">
-          <button class="btn btn-success" data-amount="10"></button>
-          <button class="btn btn-warning" data-amount="25"></button>
-          <button class="btn btn-danger" data-amount="50"></button>
+          <button class="btn btn-success" data-amount="10">$10</button>
+          <button class="btn btn-warning" data-amount="25">$25</button>
+          <button class="btn btn-danger" data-amount="50">$50</button>
         </div>
       </section>
       <section class="bank">
