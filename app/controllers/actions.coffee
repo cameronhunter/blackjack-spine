@@ -38,12 +38,11 @@ class Actions extends Spine.Controller
     hide @action_buttons
     show @continue_button
 
-  can_play: (player) =>
-    if player.pot.size == 0
-      show @start_over_button
-      hide @bet_buttons
-      hide @deal_button
-      hide @continue_button
+  can_play: =>
+    show @start_over_button
+    hide @bet_buttons
+    hide @deal_button
+    hide @continue_button
   
   bank_check: (player) =>
     for el in @bet_buttons.find('button')

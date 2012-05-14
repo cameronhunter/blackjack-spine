@@ -41,7 +41,7 @@ class Round extends Spine.Controller
     
     new Bank(el:@bank_section)
     new Actions(el:@actions_section)
-    
+
     @pay_into_pot @blinds
     
   deal: ->
@@ -70,13 +70,12 @@ class Round extends Spine.Controller
     
     if player_score == dealer_score
       @draw()
-      return
-
-    if @dealers_hand.is_bust() or (!@players_hand.is_bust() and (player_score > dealer_score))
+    else if @dealers_hand.is_bust() or (!@players_hand.is_bust() and (player_score > dealer_score))
       @win()
-      return
-      
-    @lose()
+    else
+      @lose()
+    
+    Spine.trigger 'finish' if @player.pot.size < @blinds
 
   win: ->
     Spine.trigger 'result', 'You Win'
@@ -100,6 +99,6 @@ class Round extends Spine.Controller
       @player.bets amount
       @pot.credit amount
     catch e
-      Spine.trigger 'finish', @player
+      Spine.trigger 'finish'
 
 module.exports = Round
