@@ -24,7 +24,7 @@ class App extends Spine.Controller
     super
     @player = new Player(pot: new Pot PLAYER_POT_SIZE)
     @start()
-  
+
   start: =>
     @round = new Round(odds:ODDS, pot_size:POT_SEED, max_bet:MAX_BET, blinds:BLINDS, player:@player)
     @table.html @round.el
@@ -32,6 +32,6 @@ class App extends Spine.Controller
   restart: =>
     @round.release()
     @start()
-  
+
 module.exports = App
-    
+

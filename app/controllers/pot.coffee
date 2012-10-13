@@ -14,13 +14,13 @@ class Pot extends Spine.Controller
     @html require('views/pot')()
     @pot.bind 'change', @render
     Spine.bind 'result', @show_winner
-  
+
   show_winner: (message) =>
     @winner_message.html message
     @winner.removeClass 'hidden'
-  
+
   render: =>
     @pot_value.html @pot.size.toFixed(2)
     @win_value.html @pot.winnings().toFixed(2)
-    
+
 module.exports = Pot

@@ -4,7 +4,7 @@ Pot = require('models/pot')
 class Player extends Spine.Model
   @configure 'Player', 'pot'
 
-  bets: (amount) -> 
+  bets: (amount) ->
     @pot.debit amount
     @save()
 

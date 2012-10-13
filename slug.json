@@ -1,7 +1,7 @@
 {
   "dependencies": [
-    "es5-shimify", 
-    "jqueryify", 
+    "es5-shimify",
+    "jqueryify",
     "spine",
     "shuffle"
   ],

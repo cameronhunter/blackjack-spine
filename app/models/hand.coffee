@@ -13,16 +13,16 @@ class Hand extends Spine.Model
   constructor: (attrs) ->
     @cards = attrs?.cards ? []
     @opponent = attrs?.opponent
-  
+
   size: -> @cards.length
-  
+
   is_bust: ->
     @score() > BLACKJACK
-  
+
   is_blackjack: ->
     @score() == BLACKJACK
 
-  add: (card) -> 
+  add: (card) ->
     throw "Hand is already bust. #{card.name for card in @cards}" if @is_bust()
     throw "Hand is already blackjack. #{card.name for card in @cards}" if @is_blackjack()
     card.hidden = @cards.length > 0 and @opponent
@@ -50,20 +50,20 @@ class Hand extends Spine.Model
     return ACE_HIGH_SCORE if card.name is ACE
     return ROYAL_SCORE if card.name in ROYALTY
     return card.name
-  
+
   # node-shuffle cards aren't quite what we want -- adapt them to something more appropriate
-  
+
   adapt = (card) ->
     {suit: suit_name(card), name: card_name(card), hidden: card.hidden}
-  
+
   suit_name = (card) ->
     switch card.suit.toLowerCase()
       when 'heart' then '♥'
       when 'diamond' then '♦'
       when 'spade' then '♠'
       when 'club' then '♣'
-  
+
   card_name = (card) ->
     if 1 < card.sort <= 10 then card.sort else card.description.toUpperCase().substring(0,1)
-  
+
 module.exports = Hand
