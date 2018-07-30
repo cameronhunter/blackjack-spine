@@ -8,7 +8,7 @@ Usage
 2. Install hem using ```npm install -g hem```
 3. Start the server ```hem server -p 9000```
 4. Point your browser at [http://localhost:9000](http://localhost:9000) to play
-5. Check out the [Jasmine](http://pivotal.github.com/jasmine) tests at [http://localhost:9000/test](http://localhost:9000/test)
+5. Check out the [Jasmine](https://jasmine.github.io/) tests at [http://localhost:9000/test](http://localhost:9000/test)
 
 Live Demo
 ---------
